@@ -3,358 +3,360 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GHS Suporte Técnico</title>
-
+  <title>GHS Suporte Técnico — Manutenção & Reparo</title>
+  <link rel="icon" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" sizes="512x512" href="img/favicon.png">
 </head>
 <body>
 
-<header class="header">
-  <nav class="navbar">
+<!-- NAV -->
+<nav id="nav">
+  <ul class="nav-links">
+    <li><a href="#inicio">Início</a></li>
+    <li><a href="#servicos">Especialidades</a></li>
+    <li><a href="#galeria">Serviços</a></li>
+    <li><a href="#reviews">Avaliações</a></li>
+    <li><a href="#perguntas">FAQ</a></li>
+    <li>
+      <a href="https://wa.me/5511961305567" target="_blank" class="wa-btn">
+        <img src="img/whatsapp.png" alt=""> Orçamento
+      </a>
+    </li>
+  </ul>
+  <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
+</nav>
 
-    <a href="#inicio" class="mobile-logo">
-      <img src="img/logo-escura.png" alt="GHS Suporte Técnico">
-    </a>
+<div class="mob-nav" id="mobNav">
+  <a href="#inicio"    onclick="closeMob()">Início</a>
+  <a href="#servicos"  onclick="closeMob()">Especialidades</a>
+  <a href="#galeria"   onclick="closeMob()">Serviços</a>
+  <a href="#reviews"   onclick="closeMob()">Avaliações</a>
+  <a href="#perguntas" onclick="closeMob()">FAQ</a>
+  <a href="https://wa.me/5511961305567" target="_blank" class="mob-wa" onclick="closeMob()">
+    <img src="img/whatsapp.png" alt=""> Pedir Orçamento
+  </a>
+</div>
 
-    <button class="menu-toggle" id="menuToggle">☰</button>
-
-    <ul class="menu" id="menu">
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="#servicos">Especialidades</a></li>
-      <li><a href="#galeria">Serviços</a></li>
-      <li><a href="#avaliacoes">Avaliações</a></li>
-      <li><a href="#perguntas">FAQ</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-
-  </nav>
-</header>
-
+<!-- HERO -->
 <section id="inicio" class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-bg-grid"></div>
 
-  <div class="hero-content animar">
+  <div class="hero-left">
+    <div class="hero-eyebrow fade">
+      <span class="blink"></span>
+      GHS SUPORTE TÉCNICO - MANUTENÇÃO EM HARDWARE, SOFTWARE E REDES
+    </div>
 
-    <img src="img/logow.png" alt="GHS Suporte Técnico" class="hero-logo">
-
-    <h1>
-      Seu aparelho consertado,
-      bem cuidado e pronto para usar.
+    <h1 class="fade">
+      Seu equipamento
+      <em>nas mãos certas.</em>
     </h1>
 
-    <p>
-      Manutenção, troca de teclado, troca de tela,
-      limpeza interna, formatação, otimização e suporte
-      técnico com cuidado e qualidade.
+    <p class="fade">
+      Manutenção, limpeza, troca de teclado e tela,
+      formatação e otimização com cuidado real e entrega testada.
     </p>
 
-    <div class="buttons">
-      <a href="#galeria" class="btn secondary">Ver trabalhos</a>
-
-      <a href="https://wa.me/5511961305567" target="_blank" class="btn primary">
-        <img src="img/whatsapp.png" alt="WhatsApp">
-        Pedir orçamento
+    <div class="hero-btns fade">
+      <a href="https://wa.me/5511961305567" target="_blank" class="btn btn-green">
+        <img src="img/whatsapp.png" alt=""> Pedir orçamento
       </a>
+      <a href="#galeria" class="btn btn-outline">Ver trabalhos</a>
     </div>
-
   </div>
 
-  <div class="scroll-indicator">
-    <span>Role para baixo</span>
-
-    <div class="mouse-scroll">
-      <div class="mouse-wheel"></div>
+  <div class="hero-right fade-r">
+    <div class="hstat">
+      <span class="hstat-icon">🧪</span>
+      <div>
+        <span class="hstat-val">100%</span>
+        <span class="hstat-lbl">Testado antes da entrega</span>
+      </div>
     </div>
-
-    <div class="mobile-scroll-phone">
-  <div class="phone-screen"></div>  
-
+    <div class="hstat">
+      <span class="hstat-icon">⭐</span>
+      <div>
+        <span class="hstat-val">5.0</span>
+        <span class="hstat-lbl">Avaliação média no Google</span>
+      </div>
+    </div>
+    <div class="hstat">
+      <span class="hstat-icon">📍</span>
+      <div>
+        <span class="hstat-val">SP</span>
+        <span class="hstat-lbl">São Paulo — atendimento local</span>
+      </div>
+    </div>
   </div>
 
+  <div class="hero-scroll fade">
+    <div class="hero-scroll-line"></div>
+    ROLE PARA VER
+  </div>
 </section>
 
-<section id="servicos" class="section">
-
-  <div class="section-title animar">
-    <span>Especialidades</span>
+<!-- SERVIÇOS -->
+<section id="servicos" class="servicos">
+  <div class="servicos-header fade">
     <h2>O que eu faço</h2>
-    <p>
-      Serviços pensados para deixar seu equipamento mais limpo,
-      rápido, seguro e confiável.
-    </p>
+    <p>Serviços pensados para deixar seu equipamento mais limpo, rápido e confiável.</p>
   </div>
 
-  <div class="cards">
-
-    <div class="card animar">
-      <div class="icon">🛠️</div>
-      <h3>Manutenção de Hardware</h3>
-      <p>
-        Revisão completa do seu computador ou notebook,
-        troca de peças, testes e diagnóstico.
-      </p>
+  <div class="svc-list">
+    <div class="svc-row fade">
+      <span class="svc-n">01</span>
+      <h3>🛠️ Manutenção de Hardware</h3>
+      <p>Revisão completa, troca de peças, diagnóstico preciso e testes em computadores e notebooks.</p>
     </div>
-
-    <div class="card animar">
-      <div class="icon">🧼</div>
-      <h3>Limpeza interna</h3>
-      <p>
-        Remoção de poeira, sujeira e manutenção preventiva
-        para melhorar a vida útil do equipamento.
-      </p>
+    <div class="svc-row fade">
+      <span class="svc-n">02</span>
+      <h3>🧼 Limpeza Interna</h3>
+      <p>Remoção de poeira e sujeira, manutenção preventiva para refrigeração e vida útil.</p>
     </div>
-
-    <div class="card animar">
-      <div class="icon">⚡</div>
-      <h3>Otimização</h3>
-      <p>
-        Ajustes para deixar o sistema mais leve, rápido
-        e melhor para o uso diário.
-      </p>
+    <div class="svc-row fade">
+      <span class="svc-n">03</span>
+      <h3>⚡ Otimização</h3>
+      <p>Ajustes para deixar o sistema mais leve, rápido e adequado para o uso do dia a dia.</p>
     </div>
-
-    <div class="card animar">
-      <div class="icon">💻</div>
-      <h3>Formatação</h3>
-      <p>
-        Instalação de sistema, programas básicos,
-        drivers e configurações iniciais.
-      </p>
+    <div class="svc-row fade">
+      <span class="svc-n">04</span>
+      <h3>💻 Formatação</h3>
+      <p>Instalação de sistema operacional, programas, drivers e configurações iniciais completas.</p>
     </div>
-
-  </div>
-
-</section>
-
-<section class="banner banner-one">
-  <div class="animar">
-    <h2>Atendimento com qualidade, confiança e transparência.</h2>
-    <p>
-      Cada serviço é feito com atenção aos detalhes,
-      cuidado com as peças e teste final.
-    </p>
+    <div class="svc-row fade">
+      <span class="svc-n">05</span>
+      <h3>⌨️ Troca de Teclado e Tela</h3>
+      <p>Substituição de teclado, tela e componentes conforme o modelo do notebook.</p>
+    </div>
   </div>
 </section>
 
-<section id="galeria" class="section">
+<!-- BANNER 1 -->
+<div class="banner fade">
+  <div class="banner-bg" style="background-image:url('img/fund0-her0.png')"></div>
+  <div class="banner-content">
+    <span class="banner-tag">— COMPROMISSO</span>
+    <h2>Qualidade, confiança e transparência em cada serviço.</h2>
+    <p>Cada etapa é feita com atenção, cuidado com as peças e teste final obrigatório antes da entrega.</p>
+  </div>
+</div>
 
-  <div class="section-title animar">
-    <span>Serviços</span>
+<!-- GALERIA -->
+<section id="galeria" class="galeria">
+  <div class="galeria-header fade">
+    <span>SERVIÇOS</span>
     <h2>Serviços realizados</h2>
-    <p>
-      Veja alguns registros de manutenção,
-      limpeza e finalização de equipamentos.
-    </p>
   </div>
 
-  <h3 class="service-carousel-title animar">Troca de teclado Notebook Samsung NP550XDA</h3>
-
-  <div class="carousel-card animar" data-carousel="servico1">
-    <button class="carousel-btn prev">❮</button>
-
-    <div class="carousel">
-      <img class="carousel-image" src="img/notebook-antes.jpeg" alt="Serviço realizado">
-
-      <div class="carousel-info">
-        <span class="carousel-counter">1 / 7</span>
-        <h3 class="carousel-title">Notebook recebido</h3>
-        <p class="carousel-text">Equipamento recebido para avaliação e manutenção.</p>
+  <div class="car-wrap fade">
+    <div class="car-title-row">
+      <h3>Troca de teclado — Notebook Samsung NP550XDA</h3>
+    </div>
+    <div class="car-box" data-car="s1">
+      <div class="car-track">
+        <img class="car-img" src="img/notebook-antes.jpeg" alt="">
+        <div class="car-info">
+          <span class="car-counter">1 / 7</span>
+          <h3 class="car-title">Notebook recebido</h3>
+          <p class="car-text">Equipamento recebido para avaliação e manutenção.</p>
+        </div>
+      </div>
+      <div class="car-controls">
+        <button class="car-btn prev">&#8592;</button>
+        <div class="car-dots"></div>
+        <button class="car-btn next">&#8594;</button>
       </div>
     </div>
-
-    <button class="carousel-btn next">❯</button>
   </div>
 
-  <div class="carousel-dots" data-dots="servico1"></div>
-
-  <h3 class="service-carousel-title animar">Notebook LG P430 sem imagem e botão de desligar ruim</h3>
-
-  <div class="carousel-card animar" data-carousel="servico2">
-    <button class="carousel-btn prev">❮</button>
-
-    <div class="carousel">
-      <img class="carousel-image" src="img/ram-smart.jpeg" alt="Notebook LG sem imagem">
-
-      <div class="carousel-info">
-        <span class="carousel-counter">1 / 5</span>
-        <h3 class="carousel-title">Teste com memória Kingston</h3>
-        <p class="carousel-text">Notebook LG ligava, porém não dava imagem durante o teste com a memória Kingston.</p>
+  <div class="car-wrap fade">
+    <div class="car-title-row">
+      <h3>Notebook LG P430 — Sem imagem e botão power com defeito</h3>
+    </div>
+    <div class="car-box" data-car="s2">
+      <div class="car-track">
+        <img class="car-img" src="img/ram-smart.jpeg" alt="">
+        <div class="car-info">
+          <span class="car-counter">1 / 5</span>
+          <h3 class="car-title">Teste com memória Kingston</h3>
+          <p class="car-text">Notebook LG ligava, porém não dava imagem durante o teste com a memória Kingston.</p>
+        </div>
+      </div>
+      <div class="car-controls">
+        <button class="car-btn prev">&#8592;</button>
+        <div class="car-dots"></div>
+        <button class="car-btn next">&#8594;</button>
       </div>
     </div>
-
-    <button class="carousel-btn next">❯</button>
   </div>
-
-  <div class="carousel-dots" data-dots="servico2"></div>
-
-  <div class="carousel-dots" id="carouselDots"></div>
-
 </section>
 
-<section class="banner banner-two">
-  <div class="animar">
+<!-- BANNER 2 -->
+<div class="banner fade">
+  <div class="banner-bg" style="background-image:url('img/fundo-hero.jpg')"></div>
+  <div class="banner-content">
+    <span class="banner-tag">— PREVENÇÃO</span>
     <h2>Manutenção preventiva evita problemas maiores.</h2>
-    <p>Cuide do seu equipamento antes que ele pare de funcionar.</p>
+    <p>Cuide do seu equipamento antes que ele pare — o custo de prevenir é sempre menor que o de consertar.</p>
   </div>
-</section>
+</div>
 
-<section id="avaliacoes" class="section">
-
-  <div class="section-title animar">
-    <span>Avaliações</span>
+<!-- REVIEWS MARQUEE -->
+<section id="reviews" class="reviews-section">
+  <div class="reviews-header fade">
     <h2>O que os clientes dizem</h2>
+    <p>Avaliações reais de quem confiou o equipamento.</p>
   </div>
 
-  <div class="reviews">
+  <div class="marquee-track">
+    <div class="marquee-fade-l"></div>
+    <div class="marquee-fade-r"></div>
+    <div class="marquee" id="marquee">
 
-    <div class="review animar">
-      <div class="stars">★★★★★</div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Serviço excelente! Meu notebook voltou funcionando perfeitamente."</p>
+        <div class="rev-author"><div class="rev-av">A</div><span class="rev-name">Anna Clara</span></div>
+      </div>
 
-      <p>
-        “Serviço excelente! Meu notebook voltou
-        funcionando perfeitamente.”
-      </p>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Atendimento ótimo! Meu notebook ficou limpo, mais rápido e funcionando muito bem."</p>
+        <div class="rev-author"><div class="rev-av">C</div><span class="rev-name">Carol</span></div>
+      </div>
 
-      <h4>Anna Clara</h4>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"O melhor, eu super recomendo. É um excelente profissional."</p>
+        <div class="rev-author"><div class="rev-av">D</div><span class="rev-name">Daay Riibeiiro</span></div>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Levei meu note capenga para limpar e dar uma otimizada. Voltou veloz e limpinho!!"</p>
+        <div class="rev-author"><div class="rev-av">N</div><span class="rev-name">Natan S. Araújo</span></div>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Serviço rápido, bem feito e com bastante cuidado. Profissional confiável, recomendo muito!"</p>
+        <div class="rev-author"><div class="rev-av">G</div><span class="rev-name">Gustavo Baio</span></div>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Transformou meu notebook que estava um caos em um praticamente novo! Atendimento excelente."</p>
+        <div class="rev-author"><div class="rev-av">E</div><span class="rev-name">edite.videos.gdr. santos</span></div>
+      </div>
+
+      <!-- Duplicado para loop contínuo -->
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Serviço excelente! Meu notebook voltou funcionando perfeitamente."</p>
+        <div class="rev-author"><div class="rev-av">A</div><span class="rev-name">Anna Clara</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Atendimento ótimo! Meu notebook ficou limpo, mais rápido e funcionando muito bem."</p>
+        <div class="rev-author"><div class="rev-av">C</div><span class="rev-name">Carol</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"O melhor, eu super recomendo. É um excelente profissional."</p>
+        <div class="rev-author"><div class="rev-av">D</div><span class="rev-name">Daay Riibeiiro</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Levei meu note capenga para limpar e dar uma otimizada. Voltou veloz e limpinho!!"</p>
+        <div class="rev-author"><div class="rev-av">N</div><span class="rev-name">Natan S. Araújo</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Serviço rápido, bem feito e com bastante cuidado. Profissional confiável, recomendo muito!"</p>
+        <div class="rev-author"><div class="rev-av">G</div><span class="rev-name">Gustavo Baio</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Transformou meu notebook que estava um caos em um praticamente novo! Atendimento excelente."</p>
+        <div class="rev-author"><div class="rev-av">E</div><span class="rev-name">edite.videos.gdr. santos</span></div>
+      </div>
+
     </div>
-
-    <div class="review animar">
-      <div class="stars">★★★★★</div>
-
-      <p>
-        “Atendimento ótimo! Meu notebook ficou limpo,
-        mais rápido e funcionando muito bem.”
-      </p>
-
-      <h4>Carol</h4>
-    </div>
-
   </div>
-
 </section>
 
-<section id="perguntas" class="section faq-section">
+<!-- FAQ -->
+<section id="perguntas" class="faq-section">
 
-  <div class="section-title animar">
-    <span>Perguntas Frequentes</span>
+  <div class="faq-left fade-l">
+    <span>PERGUNTAS FREQUENTES</span>
     <h2>Dúvidas comuns</h2>
-    <p>
-      Tire suas principais dúvidas antes de solicitar
-      manutenção ou orçamento.
-    </p>
+    <p>Tire suas principais dúvidas antes de solicitar manutenção ou orçamento pelo WhatsApp.</p>
   </div>
 
-  <div class="faq-container animar">
+  <div class="faq-list fade-r">
 
     <div class="faq-item">
-      <button class="faq-question">
-        Como funciona o orçamento?
-        <div class="faq-icon"><span></span><span></span></div>
-      </button>
-
-      <div class="faq-answer">
-        <p>
-          Você entra em contato pelo WhatsApp,
-          explica o problema e, se possível,
-          envia fotos ou vídeos para avaliação inicial.
-        </p>
-      </div>
+      <button class="faq-q">Como funciona o orçamento?<span class="faq-ico">+</span></button>
+      <div class="faq-a"><p>Você entra em contato pelo WhatsApp, explica o problema e, se possível, envia fotos ou vídeos. O orçamento é feito sem compromisso.</p></div>
     </div>
 
     <div class="faq-item">
-      <button class="faq-question">
-        O equipamento é testado antes da entrega?
-        <div class="faq-icon"><span></span><span></span></div>
-      </button>
-
-      <div class="faq-answer">
-        <p>
-          Sim. Todo equipamento passa por testes
-          após a manutenção para verificar desempenho
-          e funcionamento correto.
-        </p>
-      </div>
+      <button class="faq-q">O equipamento é testado antes da entrega?<span class="faq-ico">+</span></button>
+      <div class="faq-a"><p>Sim. Todo equipamento passa por testes após a manutenção para verificar desempenho e funcionamento correto.</p></div>
     </div>
 
     <div class="faq-item">
-      <button class="faq-question">
-        Você faz limpeza interna?
-        <div class="faq-icon"><span></span><span></span></div>
-      </button>
-
-      <div class="faq-answer">
-        <p>
-          Sim. A limpeza ajuda na refrigeração,
-          evita superaquecimento e melhora a
-          conservação do equipamento.
-        </p>
-      </div>
+      <button class="faq-q">Você faz limpeza interna?<span class="faq-ico">+</span></button>
+      <div class="faq-a"><p>Sim. A limpeza ajuda na refrigeração, evita superaquecimento e melhora a conservação e desempenho do equipamento.</p></div>
     </div>
 
     <div class="faq-item">
-      <button class="faq-question">
-        Faz troca de teclado e tela?
-        <div class="faq-icon"><span></span><span></span></div>
-      </button>
-
-      <div class="faq-answer">
-        <p>
-          Sim. Faço troca de teclado, tela
-          e outros componentes dependendo
-          do modelo do notebook.
-        </p>
-      </div>
+      <button class="faq-q">Faz troca de teclado e tela?<span class="faq-ico">+</span></button>
+      <div class="faq-a"><p>Sim. Faço troca de teclado, tela e outros componentes dependendo do modelo do notebook. Entre em contato para verificar.</p></div>
     </div>
 
     <div class="faq-item">
-      <button class="faq-question">
-        Quanto tempo demora o serviço?
-        <div class="faq-icon"><span></span><span></span></div>
-      </button>
-
-      <div class="faq-answer">
-        <p>
-          O prazo depende do tipo de manutenção,
-          disponibilidade de peças e complexidade
-          do problema encontrado.
-        </p>
-      </div>
+      <button class="faq-q">Quanto tempo demora o serviço?<span class="faq-ico">+</span></button>
+      <div class="faq-a"><p>O prazo depende do tipo de manutenção, disponibilidade de peças e complexidade do problema. Você é informado durante todo o processo.</p></div>
     </div>
 
   </div>
-
 </section>
 
-<section id="contato" class="contact animar">
-
-  <span class="contact-tag">Atendimento via WhatsApp</span>
-
-  <h2>Precisa de manutenção ou suporte técnico?</h2>
-
-  <p>
-    Chame agora no WhatsApp e solicite um orçamento.
-    Explique o problema do equipamento e envie fotos se precisar.
-  </p>
-
-  <a href="https://wa.me/5511961305567" target="_blank" class="btn primary whatsapp-btn">
-    <img src="img/whatsapp.png" alt="WhatsApp">
-    Falar no WhatsApp
-  </a>
-
+<!-- CONTATO -->
+<section id="contato" class="contato">
+  <div class="contato-left fade-l">
+    <span>ATENDIMENTO VIA WHATSAPP</span>
+    <h2>Precisa de suporte técnico?</h2>
+  </div>
+  <div class="contato-right fade-r">
+    <p>Chame no WhatsApp, explique o problema e solicite seu orçamento.</p>
+    <a href="https://wa.me/5511961305567" target="_blank" class="btn btn-green" style="align-self:flex-start;font-size:15px;padding:14px 26px">
+      <img src="img/whatsapp.png" alt=""> Falar no WhatsApp
+    </a>
+  </div>
 </section>
 
-<a href="https://wa.me/5511961305567" target="_blank" class="whatsapp">
+<!-- WA FLOAT -->
+<a href="https://wa.me/5511961305567" target="_blank" class="wa-float">
   <img src="img/whatsapp.png" alt="WhatsApp">
 </a>
 
+<!-- FOOTER -->
 <footer>
-  <p>
-    © <span id="ano"></span>
-    Gustavo Henrique - Todos os direitos reservados.
-  </p>
+  <p>© <span id="ano"></span> <span class="f-acc">Gustavo Henrique</span> — Todos os direitos reservados.</p>
+  <div class="footer-links">
+    <a href="#inicio">Início</a>
+    <a href="#servicos">Especialidades</a>
+    <a href="#galeria">Serviços</a>
+    <a href="https://wa.me/5511961305567" target="_blank">WhatsApp</a>
+  </div>
 </footer>
-
 <script src="script.js"></script>
-
 </body>
 </html>

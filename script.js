@@ -1,350 +1,74 @@
-const ano = document.getElementById("ano");
-
-if (ano) {
-  ano.textContent = new Date().getFullYear();
-}
-
-/* ANIMAÇÃO AO ROLAR */
-
-const elementos = document.querySelectorAll(".animar");
-
-const observer = new IntersectionObserver((entradas) => {
-
-  entradas.forEach((entrada) => {
-
-    if (entrada.isIntersecting) {
-      entrada.target.classList.add("mostrar");
-    }
-
-  });
-
-}, {
-  threshold: 0.2
-});
-
-elementos.forEach((elemento) => {
-  observer.observe(elemento);
-});
-
-/* HEADER */
-
-const header = document.querySelector(".header");
-
-window.addEventListener("scroll", () => {
-
-  if (header) {
-
-    if (window.scrollY > 40) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-
-  }
-
-});
-
-/* MENU MOBILE */
-
-const menuToggle = document.getElementById("menuToggle");
-const menu = document.getElementById("menu");
-
-if (menuToggle && menu) {
-
-  menuToggle.addEventListener("click", () => {
-
-    menu.classList.toggle("ativo");
-
-    if (menu.classList.contains("ativo")) {
-      menuToggle.textContent = "×";
-    } else {
-      menuToggle.textContent = "☰";
-    }
-
-  });
-
-  const linksMenu = menu.querySelectorAll("a");
-
-  linksMenu.forEach((link) => {
-
-    link.addEventListener("click", () => {
-
-      menu.classList.remove("ativo");
-      menuToggle.textContent = "☰";
-
-    });
-
-  });
-
-}
-
-/* CARROSSEIS */
-
-const carrosseis = {
-
-  servico1: [
-
-    {
-      src: "img/notebook-antes.jpeg",
-      titulo: "Notebook recebido",
-      texto: "Equipamento recebido para avaliação e manutenção."
-    },
-
-    {
-      src: "img/produtos-limpeza.jpeg",
-      titulo: "Produtos utilizados",
-      texto: "Materiais usados para limpeza e cuidado com o equipamento."
-    },
-
-    {
-      src: "img/manutencao-1.jpeg",
-      titulo: "Manutenção interna",
-      texto: "Notebook aberto para verificação, limpeza e manutenção."
-    },
-
-    {
-      src: "img/manutencao-2.jpeg",
-      titulo: "Organização das peças",
-      texto: "Serviço feito com cuidado e peças bem organizadas."
-    },
-
-    {
-      src: "img/notebook-depois.jpeg",
-      titulo: "Notebook finalizado",
-      texto: "Equipamento montado e pronto para os testes finais."
-    },
-
-    {
-      src: "img/notebook-ligado.jpeg",
-      titulo: "Teste final",
-      texto: "Notebook ligado e testado após a manutenção."
-    },
-
-    {
-      src: "img/panfletos.jpeg",
-      titulo: "Serviço entregue ao cliente",
-      texto: "Finalização com agradecimento e cuidado na entrega."
-    }
-
-  ],
-
-  servico2: [
-
-    {
-      src: "img/ram-smart.jpeg",
-      titulo: "Teste com memória Kingston",
-      texto: "Notebook LG ligava, porém não dava imagem durante o teste com a memória Kingston."
-    },
-
-    {
-      src: "img/notebook-aberto-lg.jpeg",
-      titulo: "Diagnóstico notebook LG",
-      texto: "Notebook aberto para análise do defeito de ausência de imagem e testes dos componentes internos."
-    },
-
-    {
-      src: "img/ram-kingston.jpeg",
-      titulo: "Teste com memória Smart",
-      texto: "A memória Kingston não funcionou corretamente, então foi usada a memória Smart conectada para teste."
-    },
-
-    {
-      src: "img/notebook-lg-teclado.jpeg",
-      titulo: "Botão power consertado",
-      texto: "Botão de ligar/desligar reparado e funcionando novamente."
-    },
-
-    {
-      src: "img/notebook-lg-tampa.jpeg",
-      titulo: "Notebook LG finalizado",
-      texto: "Notebook LG finalizado após correção do botão power e testes no problema de imagem."
-    }
-
-  ]
-
-};
-
-document.querySelectorAll(".carousel-card").forEach((carouselCard) => {
-
-  const nomeCarousel = carouselCard.dataset.carousel;
-  const imagens = carrosseis[nomeCarousel];
-
-  if (!imagens) {
-    return;
-  }
-
-  let imagemAtual = 0;
-  let intervaloCarousel;
-
-  const carouselImage = carouselCard.querySelector(".carousel-image");
-  const carouselTitle = carouselCard.querySelector(".carousel-title");
-  const carouselText = carouselCard.querySelector(".carousel-text");
-  const carouselCounter = carouselCard.querySelector(".carousel-counter");
-  const prevBtn = carouselCard.querySelector(".prev");
-  const nextBtn = carouselCard.querySelector(".next");
-  const carouselDots = document.querySelector(`[data-dots="${nomeCarousel}"]`);
-
-  if (
-    !carouselImage ||
-    !carouselTitle ||
-    !carouselText ||
-    !carouselCounter ||
-    !prevBtn ||
-    !nextBtn ||
-    !carouselDots
-  ) {
-    return;
-  }
-
-  function atualizarCarousel() {
-
-    carouselImage.style.opacity = "0";
-
-    setTimeout(() => {
-
-      carouselImage.src = imagens[imagemAtual].src;
-      carouselTitle.textContent = imagens[imagemAtual].titulo;
-      carouselText.textContent = imagens[imagemAtual].texto;
-      carouselCounter.textContent = `${imagemAtual + 1} / ${imagens.length}`;
-
-      carouselImage.style.opacity = "1";
-
-      atualizarDots();
-
-    }, 200);
-
-  }
-
-  function criarDots() {
-
-    carouselDots.innerHTML = "";
-
-    imagens.forEach((_, index) => {
-
-      const dot = document.createElement("span");
-
-      dot.classList.add("carousel-dot");
-
-      dot.addEventListener("click", () => {
-
-        imagemAtual = index;
-
-        atualizarCarousel();
-
-        reiniciarAutoPlay();
-
-      });
-
-      carouselDots.appendChild(dot);
-
-    });
-
-    atualizarDots();
-
-  }
-
-  function atualizarDots() {
-
-    const dots = carouselDots.querySelectorAll(".carousel-dot");
-
-    dots.forEach((dot, index) => {
-
-      dot.classList.toggle("active", index === imagemAtual);
-
-    });
-
-  }
-
-  function proximaImagem() {
-
-    imagemAtual++;
-
-    if (imagemAtual >= imagens.length) {
-      imagemAtual = 0;
-    }
-
-    atualizarCarousel();
-
-  }
-
-  function imagemAnterior() {
-
-    imagemAtual--;
-
-    if (imagemAtual < 0) {
-      imagemAtual = imagens.length - 1;
-    }
-
-    atualizarCarousel();
-
-  }
-
-  function iniciarAutoPlay() {
-
-    intervaloCarousel = setInterval(() => {
-
-      proximaImagem();
-
-    }, 5000);
-
-  }
-
-  function reiniciarAutoPlay() {
-
-    clearInterval(intervaloCarousel);
-
-    iniciarAutoPlay();
-
-  }
-
-  nextBtn.addEventListener("click", () => {
-
-    proximaImagem();
-
-    reiniciarAutoPlay();
-
-  });
-
-  prevBtn.addEventListener("click", () => {
-
-    imagemAnterior();
-
-    reiniciarAutoPlay();
-
-  });
-
-  criarDots();
-
-  atualizarCarousel();
-
-  iniciarAutoPlay();
-
-});
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+/* Nav */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40));
+
+/* Mobile */
+const hbg = document.getElementById('hbg');
+const mobNav = document.getElementById('mobNav');
+hbg.addEventListener('click',()=>{hbg.classList.toggle('open');mobNav.classList.toggle('open')});
+function closeMob(){hbg.classList.remove('open');mobNav.classList.remove('open')}
+
+/* Fade observer */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('show')});
+},{threshold:0.1});
+document.querySelectorAll('.fade,.fade-l,.fade-r').forEach(el=>io.observe(el));
 
 /* FAQ */
-
-const faqItems = document.querySelectorAll(".faq-item");
-
-faqItems.forEach((item) => {
-
-  const pergunta = item.querySelector(".faq-question");
-
-  if (!pergunta) {
-    return;
-  }
-
-  pergunta.addEventListener("click", () => {
-
-    faqItems.forEach((outroItem) => {
-
-      if (outroItem !== item) {
-        outroItem.classList.remove("active");
-      }
-
-    });
-
-    item.classList.toggle("active");
-
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>{
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!open) item.classList.add('open');
   });
+});
 
+/* Carousels */
+const carData={
+  s1:[
+    {src:'img/notebook-antes.jpeg',  title:'Notebook recebido',          text:'Equipamento recebido para avaliação e manutenção.'},
+    {src:'img/produtos-limpeza.jpeg',title:'Produtos utilizados',         text:'Materiais usados para limpeza e cuidado com o equipamento.'},
+    {src:'img/manutencao-1.jpeg',    title:'Manutenção interna',          text:'Notebook aberto para verificação, limpeza e manutenção.'},
+    {src:'img/manutencao-2.jpeg',    title:'Organização das peças',       text:'Serviço feito com cuidado e peças bem organizadas.'},
+    {src:'img/notebook-depois.jpeg', title:'Notebook finalizado',         text:'Equipamento montado e pronto para os testes finais.'},
+    {src:'img/notebook-ligado.jpeg', title:'Teste final',                 text:'Notebook ligado e testado após a manutenção.'},
+    {src:'img/panfletos.jpeg',       title:'Serviço entregue ao cliente', text:'Finalização com agradecimento e cuidado na entrega.'}
+  ],
+  s2:[
+    {src:'img/ram-smart.jpeg',           title:'Teste com memória Kingston', text:'Notebook LG ligava, porém não dava imagem com a memória Kingston.'},
+    {src:'img/notebook-aberto-lg.jpeg',  title:'Diagnóstico notebook LG',    text:'Notebook aberto para análise do defeito de ausência de imagem.'},
+    {src:'img/ram-kingston.jpeg',        title:'Teste com memória Smart',    text:'Memória Smart conectada para teste após falha da Kingston.'},
+    {src:'img/notebook-lg-teclado.jpeg', title:'Botão power consertado',     text:'Botão de ligar/desligar reparado e funcionando novamente.'},
+    {src:'img/notebook-lg-tampa.jpeg',   title:'Notebook LG finalizado',     text:'Notebook finalizado após correção do botão e testes de imagem.'}
+  ]
+};
+
+document.querySelectorAll('.car-box').forEach(box=>{
+  const slides = carData[box.dataset.car]; if(!slides) return;
+  const img=box.querySelector('.car-img'),title=box.querySelector('.car-title'),
+        text=box.querySelector('.car-text'),ctr=box.querySelector('.car-counter'),
+        dotsEl=box.querySelector('.car-dots'),prev=box.querySelector('.prev'),next=box.querySelector('.next');
+  let cur=0,timer;
+  slides.forEach((_,i)=>{
+    const d=document.createElement('span');
+    d.className='c-dot'+(i===0?' active':'');
+    d.addEventListener('click',()=>{goto(i);restart()});
+    dotsEl.appendChild(d);
+  });
+  function update(){
+    img.style.opacity='0';
+    setTimeout(()=>{
+      const s=slides[cur];
+      img.src=s.src;title.textContent=s.title;text.textContent=s.text;
+      ctr.textContent=`${cur+1} / ${slides.length}`;img.style.opacity='1';
+      dotsEl.querySelectorAll('.c-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+    },220);
+  }
+  function goto(n){cur=((n%slides.length)+slides.length)%slides.length;update()}
+  function restart(){clearInterval(timer);timer=setInterval(()=>goto(cur+1),5000)}
+  prev.addEventListener('click',()=>{goto(cur-1);restart()});
+  next.addEventListener('click',()=>{goto(cur+1);restart()});
+  update();restart();
 });
